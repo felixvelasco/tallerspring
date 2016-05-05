@@ -21,27 +21,17 @@
 					<tr>
 						<th>Nº</th>
 						<th>Ticker</th>
+						<th>Rec.</th>
 						<th></th>
 					</tr>
-					<tr>
-						<td>12</td>
-						<td class="text-uppercase">GOOGL</td>
-						<td class="text-right">9452,16 $</td>
-					</tr>
-					<tr>
-						<td>50</td>
-						<td class="text-uppercase">Aapl</td>
-						<td class="text-right">5374,00 $</td>
-					</tr>
-					<tr>
-						<td>42</td>
-						<td class="text-uppercase">fb</td>
-						<td class="text-right">4638,90 $</td>
-					</tr>
-					<tr>
-						<td>67</td>
-						<td class="text-uppercase">NFLX</td>
-						<td class="text-right">7262,80 $</td>
+					<tr ng-repeat="stock in stocks">
+						<td>{{stock.shares}}</td>
+						<td class="text-uppercase">{{stock.ticker}}</td>
+						<td>
+							<span ng-if="stock.recommendation === 1" class="text-left glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+							<span ng-if="stock.recommendation === -1" class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+						</td>
+						<td class="text-right">{{stock.value}} {{stock.currency}}</td>
 					</tr>
 				</table>
 				<button type="button" class="btn btn-primary">Operaciones</button>

@@ -9,8 +9,8 @@ angular.module('posGlobal.mainView', ['ngRoute'])
   });
 }])
 
-.controller('mainViewCtrl', ['$scope', 'tickerService', 'accountService', 'opportunityService',
-  function($scope, tickerService, accountService, opportunityService) {
+.controller('mainViewCtrl', ['$scope', 'tickerService', 'accountService', 'opportunityService', 'stocksService',
+  function($scope, tickerService, accountService, opportunityService, stocksService) {
    
       function graficoBolsa(canvasId, ticker) {
         canvasId = canvasId || 'myChart';
@@ -79,6 +79,11 @@ angular.module('posGlobal.mainView', ['ngRoute'])
             	  
               });
           }, 0);
+      	}
+      );
+
+      stocksService.stocks().then( function (data) {
+    	  $scope.stocks = data;
       	}
       );
 
