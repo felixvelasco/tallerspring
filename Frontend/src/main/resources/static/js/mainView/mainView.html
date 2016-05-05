@@ -1,0 +1,68 @@
+		<div class="row">
+			<div class="col-md-4" ng-repeat="account in accounts">
+				<h2>Cuenta {{account.accountId}}</h2>
+				<table class="table table-striped">
+					<tr>
+						<th>Fecha</th>
+						<th>Concepto</th>
+						<th></th>
+					</tr>
+					<tr ng-repeat="movement in account.movements">
+						<td>{{movement.fecha | date:'dd/MM/yyyy' }}</td>
+						<td>{{movement.concepto}}</td>
+						<td class="text-right">{{movement.valor}} €</td>
+					</tr>
+				</table>
+				<button type="button" class="btn btn-primary">Movimientos</button>
+			</div>
+			<div class="col-md-4">
+				<h2>Cartera de acciones</h2>
+				<table class="table table-striped">
+					<tr>
+						<th>Nº</th>
+						<th>Ticker</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td class="text-uppercase">GOOGL</td>
+						<td class="text-right">9452,16 $</td>
+					</tr>
+					<tr>
+						<td>50</td>
+						<td class="text-uppercase">Aapl</td>
+						<td class="text-right">5374,00 $</td>
+					</tr>
+					<tr>
+						<td>42</td>
+						<td class="text-uppercase">fb</td>
+						<td class="text-right">4638,90 $</td>
+					</tr>
+					<tr>
+						<td>67</td>
+						<td class="text-uppercase">NFLX</td>
+						<td class="text-right">7262,80 $</td>
+					</tr>
+				</table>
+				<button type="button" class="btn btn-primary">Operaciones</button>
+			</div>
+			<div class="col-md-4">
+				<h2>Crédito bolsa</h2>
+				<p>El nuevo crédito bolsa preconcedido le permitirá incrementar
+					sus inversiones con un dinero que no es suyo, aumentando su riesgo
+					y nuestro beneficio.</p>
+				<p>Le corresponde un crédito preconcedido de:</p>
+				<h3 class="text-center">30.000 €</h3>
+				<h6>TAE 7,25%. Crédito a devolver en 48 meses. Contratamos
+					albano-kosovares para cobrar.</h6>
+				<button type="button" class="btn btn-primary btn-lg btn-block">Contratar</button>
+			</div>
+			<div class="col-md-4" ng-repeat="ticker in tickers">
+				<h2>Cotización de {{ticker}}</h2>
+				<canvas id="{{'myChart' + $index}}"></canvas>
+			</div>
+			<div class="col-md-4">
+				<h2>Evolución del saldo</h2>
+				<canvas id="saldoChart"></canvas>
+			</div>
+		</div>
