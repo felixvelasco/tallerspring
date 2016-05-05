@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.isb.cmm.frontend.remote.opportunities.OpportunityService;
+import com.isb.cmm.frontend.remote.recomend.RecomendService;
 
 @RestController
-@RequestMapping("/promos")
-public class OpportunityController {
+@RequestMapping("/recommendStock")
+public class RecomendController {
 
 	
 	
 	@Autowired
-	private OpportunityService opportunityService;
+	private RecomendService recService;
 	
-	@Autowired
-	private OpportunityConverter converter;
 	
 	@RequestMapping(method = GET)
-	public Opportunity getOpportunity(@PathVariable("id") Long userId) {		
-		return converter.convert(opportunityService.getOpportunity(userId));
+	public String getOpportunity(@PathVariable("value") String value) {		
+		return (recService.getRecommendation(value));
 	}	
 
+	
+	
 }
