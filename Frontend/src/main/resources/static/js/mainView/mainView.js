@@ -9,7 +9,8 @@ angular.module('posGlobal.mainView', ['ngRoute'])
   });
 }])
 
-.controller('mainViewCtrl', ['$scope', 'tickerService', 'accountService', function($scope, tickerService, accountService) {
+.controller('mainViewCtrl', ['$scope', 'tickerService', 'accountService', 'opportunityService',
+  function($scope, tickerService, accountService, opportunityService) {
    
       function graficoBolsa(canvasId, ticker) {
         canvasId = canvasId || 'myChart';
@@ -96,6 +97,11 @@ angular.module('posGlobal.mainView', ['ngRoute'])
     	  
           
       	}
+      );
+      
+      opportunityService.opportunity().then( function (data) {
+    	  $scope.opportunity = data;
+      	} 
       );
 
       graficoHistorico('saldoChart');

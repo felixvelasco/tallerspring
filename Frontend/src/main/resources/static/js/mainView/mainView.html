@@ -46,15 +46,11 @@
 				</table>
 				<button type="button" class="btn btn-primary">Operaciones</button>
 			</div>
-			<div class="col-md-4">
-				<h2>Crédito bolsa</h2>
-				<p>El nuevo crédito bolsa preconcedido le permitirá incrementar
-					sus inversiones con un dinero que no es suyo, aumentando su riesgo
-					y nuestro beneficio.</p>
-				<p>Le corresponde un crédito preconcedido de:</p>
-				<h3 class="text-center">30.000 €</h3>
-				<h6>TAE 7,25%. Crédito a devolver en 48 meses. Contratamos
-					albano-kosovares para cobrar.</h6>
+			<div class="col-md-4" ng-if="opportunity">
+				<h2>{{opportunity.header}}</h2>
+				<p ng-repeat="paragraph in opportunity.paragraphs">{{paragraph}}</p>
+				<h3 class="text-center">{{opportunity.bait}}</h3>
+				<h6>{{opportunity.footer}}</h6>
 				<button type="button" class="btn btn-primary btn-lg btn-block">Contratar</button>
 			</div>
 			<div class="col-md-4" ng-repeat="ticker in tickers">

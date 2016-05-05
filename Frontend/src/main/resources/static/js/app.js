@@ -5,7 +5,8 @@ angular.module('posGlobal', [
   'ngRoute',
   'posGlobal.mainView',
   'posGlobal.tickerService',
-  'posGlobal.accountService'
+  'posGlobal.accountService',
+  'posGlobal.opportunityService',
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/mainView'});
