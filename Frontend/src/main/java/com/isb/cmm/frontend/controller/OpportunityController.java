@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.isb.cmm.frontend.remote.opportunities.OpportunityService;
 
 @RestController
-@RequestMapping("/promos")
+@RequestMapping("/opportunities")
 public class OpportunityController {
 
 	
