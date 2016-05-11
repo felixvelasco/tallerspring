@@ -18,8 +18,7 @@ public class RecomendController {
 	@Autowired
 	private RecomendService recService;
 	
-	
-	@RequestMapping(method = GET)
+	@RequestMapping(path = "/{value}", method = GET)
 	public String getOpportunity(@PathVariable("value") String value) {		
 		return (recService.getRecommendation(value));
 	}	
